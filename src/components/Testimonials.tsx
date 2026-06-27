@@ -15,6 +15,20 @@ const Testimonials: React.FC = () => {
       location: "Bangalore",
       text: "Perfect for lounging in style. The floral patterns are even more beautiful in person, and the fabric is incredibly soft.",
       rating: 5
+    },
+    {
+      id: 3,
+      name: "Priya D.",
+      location: "Delhi",
+      text: "Absolutely in love with the elegance and comfort. The fabric drapes beautifully and feels luxurious against the skin.",
+      rating: 5
+    },
+    {
+      id: 4,
+      name: "Neha R.",
+      location: "Pune",
+      text: "The artisanal touch is evident in every detail. It's rare to find nightwear that makes you feel this put together.",
+      rating: 5
     }
   ];
 
