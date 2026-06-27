@@ -375,6 +375,11 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-image:hover img {
+  transform: scale(1.05);
 }
 
 /* Grid Styles */
