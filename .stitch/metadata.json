@@ -1,0 +1,20 @@
+{
+  "projectId": "8397314175416008241",
+  "title": "Yumi Premium Fashion Landing",
+  "visibility": "PRIVATE",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "BODONI_MODA",
+    "roundness": "ROUND_ZERO",
+    "customColor": "#000000"
+  },
+  "screens": {
+    "index": {
+      "id": "3ba6052ebf1142c281bd8e22cc3c6fef",
+      "sourceScreen": "projects/8397314175416008241/screens/3ba6052ebf1142c281bd8e22cc3c6fef",
+      "width": 1280,
+      "height": 4311
+    }
+  }
+}

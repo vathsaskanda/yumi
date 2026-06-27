@@ -1,0 +1,348 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-margiela-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography Utilities */
+.text-caption-xs {
+  font-size: var(--text-caption-xs);
+  line-height: var(--leading-caption-xs);
+  letter-spacing: var(--tracking-caption-xs);
+}
+
+.text-eyebrow {
+  font-size: var(--text-eyebrow);
+  line-height: var(--leading-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.text-serif-body {
+  font-family: var(--font-margiela-serif);
+  font-size: var(--text-serif-body);
+  line-height: var(--leading-serif-body);
+  letter-spacing: var(--tracking-serif-body);
+}
+
+.text-serif-heading-sm {
+  font-family: var(--font-margiela-serif);
+  font-size: var(--text-serif-heading-sm);
+  line-height: var(--leading-serif-heading-sm);
+  letter-spacing: var(--tracking-serif-heading-sm);
+}
+
+.text-serif-heading {
+  font-family: var(--font-margiela-serif);
+  font-size: var(--text-serif-heading);
+  line-height: var(--leading-serif-heading);
+  letter-spacing: var(--tracking-serif-heading);
+}
+
+/* Font Weights */
+.font-weight-375 { font-weight: 375; }
+.font-weight-400 { font-weight: 400; }
+.font-weight-475 { font-weight: 475; }
+.font-weight-500 { font-weight: 500; }
+.font-weight-600 { font-weight: 600; }
+.font-weight-700 { font-weight: 700; }
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  padding-left: var(--spacing-16);
+  padding-right: var(--spacing-16);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px; /* Maison Margiela standard */
+}
+
+.section {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* Announcement Bar - Site-wide top strip */
+.announcement-bar {
+  background-color: var(--color-atelier-white);
+  color: var(--color-ink);
+  font-family: var(--font-margiela-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: var(--spacing-4) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 40px; /* Spec: Height ≈ 40px */
+}
+
+/* Navigation Styles - No borders, separation via surface shifts */
+.nav {
+  background-color: var(--color-paper);
+  height: 64px; /* Standard nav height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-16);
+  position: fixed;
+  top: 40px; /* Below announcement bar */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  /* No border - depth comes from surface shifts */
+  transition: background-color 0.3s ease;
+}
+
+.nav.scrolled {
+  background-color: var(--color-atelier-white); /* Surface shift on scroll */
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.nav-logo img {
+  height: 24px;
+  width: auto;
+}
+
+.nav-logo-text {
+  font-family: var(--font-margiela-serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.004px;
+  color: var(--color-ink);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-24);
+}
+
+.nav-link {
+  font-family: var(--font-margiela-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  text-decoration: none;
+  padding: var(--spacing-4) 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  /* Underline appears on hover/active - 1px from baseline */
+  text-decoration: underline;
+  text-underline-offset: 2px; /* 1px from baseline approx */
+}
+
+/* Ghost Text Link (Primary CTA - Maison Margiela Style) */
+.ghost-link {
+  font-family: var(--font-margiela-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.ghost-link:hover {
+  border-bottom-color: var(--color-ink);
+}
+
+.ghost-link::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 1L7 4L4 7' stroke='%23121212' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s ease;
+}
+
+.ghost-link:hover::after {
+  transform: translateX(2px);
+}
+
+/* Image Styles - Full bleed, no borders/radius */
+.hero-image {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-images);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Grid Styles */
+.grid {
+  display: grid;
+  gap: var(--spacing-16);
+}
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .md\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Card Styles - No border, depth via surface shifts */
+.card {
+  background-color: var(--color-paper);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  /* No border - depth comes from surface shifts or whitespace */
+}
+
+.card-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: var(--color-atelier-white); /* Surface layer */
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card-image:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: var(--spacing-16);
+}
+
+.card-title {
+  font-family: var(--font-margiela-serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.07px;
+  margin-bottom: var(--spacing-4);
+  color: var(--color-ink);
+}
+
+.card-subtitle {
+  font-family: var(--font-margiela-sans);
+  font-size: 14px;
+  font-weight: 40px;
+}
+}
+ \var(--color-\ink\) \;
+  }
+\}  }
+}
+.footer-nav a:hover {
+  /* Underline appears on hover - 1px from baseline */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+  font-family: var(--font-margiela-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer-nav {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-16);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
